@@ -3,6 +3,8 @@ on:
   issues:
     types: [opened]
 
+engine: copilot
+
 permissions:
   issues: read
 
