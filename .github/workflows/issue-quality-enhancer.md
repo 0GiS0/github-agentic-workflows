@@ -1,7 +1,7 @@
 ---
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 engine: copilot
 
