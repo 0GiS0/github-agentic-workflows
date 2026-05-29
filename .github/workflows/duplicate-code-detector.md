@@ -14,8 +14,8 @@ permissions:
 safe-outputs:
   create-issue:
     expires: 2d
-    title-prefix: "[duplicate-code] "
-    labels: [code-quality, automated-analysis]
+    title-prefix: "[🧬 Duplicate Code Report 🔍] "
+    labels: ["🔍 automated-analysis", "🧹 code-quality", "🤖 agentic-workflows"]
     assignees: copilot
     group: true
     max: 3
