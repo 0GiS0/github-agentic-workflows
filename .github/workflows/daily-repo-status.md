@@ -10,7 +10,7 @@ permissions:
 safe-outputs: 
   create-issue: 
     title-prefix: "[🌅 Daily Repo Status 📊] " 
-    labels: [report] 
+    labels: ["📊 daily-report", "🤖 agentic-workflows"] 
  
 tools: 
   github: 
