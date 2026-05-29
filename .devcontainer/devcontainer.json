@@ -2,7 +2,6 @@
   // 🍃 Spring Boot Development Container
   "name": "🍃 Spring Boot + ☕ Java 21",
   "image": "mcr.microsoft.com/devcontainers/java:21",
-
   // 🧩 Features
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
@@ -10,9 +9,18 @@
       "installGradle": true,
       "installMaven": true
     },
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "installDirectlyFromGitHubRelease": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:3": {
+      "moby": false,
+      "azureDnsAutoDetection": true,
+      "installDockerBuildx": true,
+      "version": "latest",
+      "dockerDashComposeVersion": "none"
+    }
   },
-
   // 🎨 VS Code Customizations
   "customizations": {
     "vscode": {
@@ -22,20 +30,16 @@
         "redhat.java",
         "vscjava.vscode-java-debug",
         "vscjava.vscode-java-test",
-        
         // 🍃 Spring Boot
         "vmware.vscode-spring-boot",
         "vscjava.vscode-spring-initializr",
         "vscjava.vscode-spring-boot-dashboard",
-        
         // 🛠️ Build Tools
         "vscjava.vscode-gradle",
         "vscjava.vscode-maven",
-        
         // 🤖 AI & Productivity
         "github.copilot",
         "github.copilot-chat",
-        
         // 📦 Utilities
         "humao.rest-client",
         "rangav.vscode-thunder-client",
@@ -46,17 +50,14 @@
         "java.configuration.updateBuildConfiguration": "automatic",
         "java.compile.nullAnalysis.mode": "automatic",
         "java.autobuild.enabled": true,
-        
         // 🍃 Spring Boot Settings
         "spring-boot.ls.java.home": "/usr/lib/jvm/msopenjdk-current",
         "boot-java.rewrite.reconcile": true,
-        
         // 🎨 Editor Settings
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
           "source.organizeImports": "explicit"
         },
-        
         // 📁 Files
         "files.exclude": {
           "**/.classpath": true,
@@ -67,24 +68,33 @@
       }
     }
   },
-
   // 🌐 Ports
-  "forwardPorts": [8080, 8081, 5005],
+  "forwardPorts": [
+    8080,
+    8081,
+    5005
+  ],
   "portsAttributes": {
-    "8080": { "label": "🍃 Spring Boot App", "onAutoForward": "notify" },
-    "8081": { "label": "📊 Actuator/Management", "onAutoForward": "silent" },
-    "5005": { "label": "🐛 Debug Port", "onAutoForward": "silent" }
+    "8080": {
+      "label": "🍃 Spring Boot App",
+      "onAutoForward": "notify"
+    },
+    "8081": {
+      "label": "📊 Actuator/Management",
+      "onAutoForward": "silent"
+    },
+    "5005": {
+      "label": "🐛 Debug Port",
+      "onAutoForward": "silent"
+    }
   },
-
   // 🔧 Environment Variables
   "containerEnv": {
     "SPRING_PROFILES_ACTIVE": "dev",
     "JAVA_TOOL_OPTIONS": "-Xmx2g"
   },
-
   // 🚀 Post Create Command
   "postCreateCommand": "echo '🍃 Spring Boot environment ready!' && java -version && ./gradlew --version 2>/dev/null || mvn --version 2>/dev/null || true",
-
   // 👤 User
   "remoteUser": "vscode"
 }
