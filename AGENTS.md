@@ -1,0 +1,3 @@
+Cada vez que te pida un cambio, mejora o arreglo revisa primero si tengo un issue abierto para ello. Si no lo tengo, hazlo tú mismo y luego haz el cambio, mejora o arreglo. El issue debe ser en español y ser escueto.
+
+Luego haz GitHub Flow creando una rama nueva, haciendo el cambio, mejora o arreglo, y luego haciendo un pull request. El pull request debe ser en español y ser escueto. Luego haz merge del pull request.
