@@ -64,8 +64,11 @@ github-agentic-workflows/
 │   └── 📂 workflows/
 │       ├── daily-repo-status.md          # Daily status report workflow
 │       ├── issue-quality-enhancer.md     # Issue enhancement workflow
+│       ├── dependabot-security-analyzer.md # Dependabot vulnerability triage workflow
 │       ├── daily-repo-status.lock.yml    # Compiled workflow
-│       └── issue-quality-enhancer.lock.yml # Compiled workflow
+│       ├── issue-quality-enhancer.lock.yml # Compiled workflow
+│       ├── dependabot-security-analyzer.lock.yml # Compiled workflow
+│       └── package.json                  # Workflow MCP dependencies
 ├── 📂 src/
 │   └── 📂 main/
 │       ├── 📂 java/com/example/demo/
@@ -85,7 +88,7 @@ github-agentic-workflows/
 
 ## 🤖 Agentic Workflows
 
-This repository includes two example workflows:
+This repository includes three example workflows:
 
 ### 1. 📊 Daily Repo Status
 
@@ -113,6 +116,19 @@ Automatically enhances newly opened issues by:
 **Trigger:** When issues are opened
 **Engine:** Copilot
 **Permissions:** `issues:read`
+
+### 3. 🛡️ VulnScope PR Guard
+
+**File:** `.github/workflows/dependabot-security-analyzer.md`
+
+Analyzes Dependabot pull requests on demand (`/dependabot-analyze`) to determine:
+- Whether the vulnerable dependency is used in an exploitable way
+- The correct priority for remediation (`priority:high` or `priority:low`)
+- Detailed evidence with code references and advisory sources
+
+**Trigger:** Slash command on PR comments (`/dependabot-analyze`)
+**Engine:** Copilot
+**Permissions:** `contents:read`, `pull-requests:read`, `security-events:read`
 
 ## 🌱 Demo Application
 

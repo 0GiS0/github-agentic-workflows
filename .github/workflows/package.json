@@ -1,0 +1,8 @@
+{
+  "name": "gh-aw-workflows-deps",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@tavily/mcp-server": "latest"
+  }
+}
