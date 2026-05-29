@@ -9,7 +9,7 @@ permissions:
  
 safe-outputs: 
   create-issue: 
-    title-prefix: "[repo status] " 
+    title-prefix: "[🌅 Daily Repo Status 📊] " 
     labels: [report] 
  
 tools: 
