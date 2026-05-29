@@ -3,7 +3,7 @@ name: Code Simplifier
 description: Analyzes recently modified code and creates pull requests with simplifications that improve clarity, consistency, and maintainability while preserving functionality
 on:
   schedule: daily
-  skip-if-match: 'is:pr is:open in:title "[code-simplifier]"'
+  skip-if-match: 'is:pr is:open in:title "[🧼 Code Simplifier ✨]"'
 
 network:
   allowed:
@@ -24,8 +24,8 @@ imports:
 
 safe-outputs:
   create-pull-request:
-    title-prefix: "[code-simplifier] "
-    labels: [refactoring, code-quality, automation]
+    title-prefix: "[🧼 Code Simplifier ✨] "
+    labels: ["🧹 code-quality", "🤖 agentic-workflows", "✨ enhancement"]
     expires: 1d
     protected-files: fallback-to-issue
 
