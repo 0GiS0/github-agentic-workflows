@@ -3,12 +3,19 @@
 build/
 !gradle/wrapper/gradle-wrapper.jar
 
+# Java
+bin/
+*.class
+
 # IDE
 .idea/
 *.iml
 *.ipr
 *.iws
 .vscode/
+.classpath
+.project
+.settings/
 *.swp
 *~
 
@@ -19,6 +26,16 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Spring Boot
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and test reports
+coverage/
+reports/
+jacoco.exec
 
 # Build
 out/
