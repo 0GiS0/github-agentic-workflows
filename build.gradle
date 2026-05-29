@@ -19,7 +19,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    
+
+    // ⚠️ DEPENDENCIAS VULNERABLES - SOLO CON FINES EDUCATIVOS ⚠️
+    // Log4j 1.2.17 - CVE-2019-17571 (deserialización remota no autenticada)
+    implementation 'log4j:log4j:1.2.17'
+    // Jackson-databind 2.9.10 - CVE-2019-17267, CVE-2020-8840 (polimorfismo peligroso)
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.10'
+    // Commons-collections 3.1 - vulnerabilidad clásica de deserialización Java
+    implementation 'commons-collections:commons-collections:3.1'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
