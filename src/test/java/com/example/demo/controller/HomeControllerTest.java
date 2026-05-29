@@ -35,6 +35,7 @@ class HomeControllerTest {
                 .andExpect(view().name("index"))
                 .andExpect(model().attributeExists("headline"))
                 .andExpect(model().attributeExists("plans"))
-                .andExpect(content().string(org.hamcrest.Matchers.containsString("Que hacer este fin de semana sin pensar demasiado")));
+                .andExpect(content().string(
+                        org.hamcrest.Matchers.containsString("Que hacer este fin de semana sin pensar demasiado")));
     }
 }
