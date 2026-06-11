@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -21,9 +21,7 @@ public class SecurityDependencyDemoController {
         // Deliberately vulnerable for GHAS demo: interpolator resolves lookups from user input.
         String resolved = StringSubstitutor.createInterpolator().replace(template);
 
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("mode", "exploitable");
-        response.put("dependency", "org.apache.commons:commons-text:1.9");
+        Map<String, Object> response = buildResponse("exploitable", "org.apache.commons:commons-text:1.9");
         response.put("input", template);
         response.put("resolved", resolved);
         return response;
@@ -31,13 +29,9 @@ public class SecurityDependencyDemoController {
 
     @GetMapping("/commons-collections/non-exploitable")
     public Map<String, Object> commonsCollectionsNonExploitable() {
-        Map<String, String> source = new HashMap<>();
-        source.put("demo", "safe-usage-only");
-        Map<String, String> unmodifiable = MapUtils.unmodifiableMap(source);
+        Map<String, String> unmodifiable = MapUtils.unmodifiableMap(Collections.singletonMap("demo", "safe-usage-only"));
 
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("mode", "non-exploitable");
-        response.put("dependency", "commons-collections:commons-collections:3.1");
+        Map<String, Object> response = buildResponse("non-exploitable", "commons-collections:commons-collections:3.1");
         response.put("entries", unmodifiable);
         return response;
     }
@@ -46,10 +40,15 @@ public class SecurityDependencyDemoController {
     public Map<String, Object> guavaNonExploitable() {
         ImmutableList<String> demo = ImmutableList.of("a", "b", "c");
 
-        Map<String, Object> response = new LinkedHashMap<>();
-        response.put("mode", "non-exploitable");
-        response.put("dependency", "com.google.guava:guava:24.1.1-jre");
+        Map<String, Object> response = buildResponse("non-exploitable", "com.google.guava:guava:24.1.1-jre");
         response.put("entries", demo);
+        return response;
+    }
+
+    private Map<String, Object> buildResponse(String mode, String dependency) {
+        Map<String, Object> response = new LinkedHashMap<>();
+        response.put("mode", mode);
+        response.put("dependency", dependency);
         return response;
     }
 }
