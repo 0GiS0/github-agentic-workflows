@@ -21,7 +21,7 @@ safe-outputs:
     max: 3
 
 timeout-minutes: 15
-source: githubnext/agentics/workflows/duplicate-code-detector.md@298f992955146a6731d380a9de808e17861708e5
+source: githubnext/agentics/workflows/duplicate-code-detector.md@1c6668b751c51af8571f01204ceffb19362e0f66
 ---
 
 # Duplicate Code Detection
