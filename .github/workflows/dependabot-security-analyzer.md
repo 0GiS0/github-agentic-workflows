@@ -11,6 +11,7 @@ permissions:
   contents: read
   pull-requests: read
   security-events: read
+  copilot-requests: write
 
 tools:
   github: 
