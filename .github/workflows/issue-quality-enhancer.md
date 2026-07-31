@@ -7,6 +7,7 @@ engine: copilot
 
 permissions:
   issues: read
+  copilot-requests: write
 
 safe-outputs:
   update-issue:
